@@ -9,7 +9,7 @@ from evaluator import Evaluator
 from rdpg import RDPG
 from util import *
 
-gym.undo_logger_setup()
+# gym.undo_logger_setup()
 
 if __name__ == "__main__":
 
@@ -21,10 +21,10 @@ if __name__ == "__main__":
     parser.add_argument('--hidden2', default=300, type=int, help='hidden num of second fully connect layer')
     parser.add_argument('--rate', default=0.001, type=float, help='learning rate')
     parser.add_argument('--prate', default=0.0001, type=float, help='policy net learning rate (only for DDPG)')
-    parser.add_argument('--warmup', default=10000, type=int, help='time without training but only filling the replay memory')
+    parser.add_argument('--warmup', default=1000, type=int, help='time without training but only filling the replay memory')
     parser.add_argument('--discount', default=0.99, type=float, help='')
     parser.add_argument('--bsize', default=64, type=int, help='minibatch size')
-    parser.add_argument('--rmsize', default=6000000, type=int, help='memory size')
+    parser.add_argument('--rmsize', default=60000, type=int, help='memory size')
     parser.add_argument('--window_length', default=1, type=int, help='')
     parser.add_argument('--tau', default=0.001, type=float, help='moving average for target network')
     parser.add_argument('--ou_theta', default=0.15, type=float, help='noise theta')
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     parser.add_argument('--ou_mu', default=0.0, type=float, help='noise mu') 
     parser.add_argument('--validate_episodes', default=20, type=int, help='how many episode to perform during validate experiment')
     parser.add_argument('--max_episode_length', default=500, type=int, help='')
-    parser.add_argument('--trajectory_length', default=5, type=int, help='')
+    parser.add_argument('--trajectory_length', default=50, type=int, help='')
     parser.add_argument('--validate_steps', default=2000, type=int, help='how many steps to perform a validate experiment')
     parser.add_argument('--debug', dest='debug', action='store_true')
     parser.add_argument('--init_w', default=0.003, type=float, help='') 

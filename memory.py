@@ -287,6 +287,8 @@ class EpisodicMemory(Memory):
         return list(map(list, zip(*batch)))  # Transpose so that timesteps are packed together
 
     def sample_trajectory(self, maxlen=0):
+        if maxlen == None:
+            maxlen = 0
         e = random.randrange(len(self.memory))
         mem = self.memory[e]
         T = len(mem)
@@ -300,3 +302,6 @@ class EpisodicMemory(Memory):
 
     def __len__(self):
         return sum(len(self.memory[idx]) for idx in range(len(self.memory)))
+    
+    
+
